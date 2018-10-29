@@ -1,6 +1,9 @@
-import { Data, animate, Override, Animatable } from "framer"
+import { Data, animate, Override, Animatable, Point } from "framer"
+import { ChangeEvent } from "react";
 
 const data = Data({
+    checklistOne: Animatable(0),
+    checklistTwo: Animatable(1),
     checkedOpacity: [Animatable(0),Animatable(0),Animatable(0),Animatable(0),Animatable(0)],
     checkedScale: [Animatable(0.8),Animatable(0.8),Animatable(0.8),Animatable(0.8),Animatable(0.8)],
     checkScale: [Animatable(1),Animatable(1),Animatable(1),Animatable(1),Animatable(1)],
@@ -9,6 +12,36 @@ const data = Data({
 })
 
 let checked = [false,false,false,false,false]
+
+export const Category: Override = () => {
+    return {
+        onChangePage(event) {
+            if (event == 0) {
+                animate.ease(data.checklistTwo, 0, {duration: 0.2})
+                setTimeout(()=>{
+                    animate.ease(data.checklistOne, 1, {duration: 0.5})
+                },200)
+            } else {
+                animate.ease(data.checklistOne, 0, {duration: 0.2})
+                setTimeout(()=>{
+                    animate.ease(data.checklistTwo, 1, {duration: 0.5})
+                },200)
+            }
+        }
+    }
+}
+
+export const Personal: Override = () => {
+    return {
+        opacity: data.checklistOne
+    }
+}
+
+export const Groceries: Override = () => {
+    return {
+        opacity: data.checklistTwo
+    }
+}
 
 export const CheckButtonOne: Override = () => {
     return {
