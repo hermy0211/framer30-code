@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Data, animate, Override, Animatable, Rect } from "framer"
 
 const data = Data({
@@ -28,17 +29,19 @@ export const eventsAfter: Override = () => {
 export const BottomSheet: Override = () => {
     let tallBoolean = data.tallBoolean
     return {
-        onPanStart() {
+        onChangePage() {
             if (!tallBoolean) {
+                console.log("Not tall")
                 tallBoolean = true
-                animate.ease(data.calendarHeight, 241, {duration: 0.4})
+                animate.ease(data.calendarHeight, 241, {duration: 0.2})
                 animate.ease(data.opacityAfter, 0, {duration: 0})
-                animate.ease(data.opacityBefore, 1, {duration: 0.4})
+                animate.ease(data.opacityBefore, 1, {duration: 0.2})
             } else {
+                console.log("Tall")
                 tallBoolean = false
-                animate.ease(data.calendarHeight, 335, {duration: 0.4})
+                animate.ease(data.calendarHeight, 335, {duration: 0.2})
                 animate.ease(data.opacityBefore, 0, {duration: 0})
-                animate.ease(data.opacityAfter, 1, {duration: 0.4})
+                animate.ease(data.opacityAfter, 1, {duration: 0.2})
             }
         }
     }
