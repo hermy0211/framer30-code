@@ -1,0 +1,72 @@
+.bg {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    background: #0053FF;
+    position: absolute;
+}
+
+.dotWrapper {
+	position: absolute;
+}
+
+.dot {
+	width: 4px;
+	height: 4px;
+	background: #FFFFFF;
+	border-radius: 50%;	
+}
+
+@keyframes rotating {
+	0% {
+		opacity: 0;
+		transform: rotate(0deg);
+	}
+	25%, 75% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes flying {
+	0% {
+		transform: translate(0, 0);
+	}
+	10% {
+		transform: translate(20px, 50px);
+	}
+	20% {
+		transform: translate(-30px, 10px);
+	}
+	30% {
+		transform: translate(10px, 60px);
+	}
+	40% {
+		transform: translate(50px, 00px);
+	}
+	50% {
+		transform: translate(-10px, -40px);
+	}
+	60% {
+		transform: translate(-40px, 20px);
+	}
+	70% {
+		transform: translate(30px, -30px);
+	}
+	80% {
+		transform: translate(0px, -60px);
+	}
+	90% {
+		transform: translate(40px, 10px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
