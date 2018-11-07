@@ -2,7 +2,6 @@ import * as React from "react";
 import { Frame, Point, Draggable, PropertyControls, ControlType } from "framer";
 
 // This code is a replica of Benjamin den Boer's Slider component
-// I added a momentum value and an id to the code to access it with the override.
 
 export interface Props {
   value: number;
@@ -194,8 +193,6 @@ export class Slider extends React.Component<Partial<Props>, State> {
     return (
       <>
         <Frame
-          // Added ID for element selection
-          id = "slider"
           left={0}
           clip={true}
           height={trackHeight}
@@ -216,10 +213,6 @@ export class Slider extends React.Component<Partial<Props>, State> {
           />
         </Frame>
         <Draggable
-          // Added ID for element selection
-          id="knob"
-          // Added momentum to sync the slider with the onTapEnd event
-          momentum={false}
           width={knobSize}
           height={knobSize}
           constraints={constraints}
