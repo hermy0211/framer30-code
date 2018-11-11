@@ -24,10 +24,3 @@ export const Background: Override = () => {
         style: {pointerEvents: "none"}
     }
 }
-
-export const Info: Override = () => {
-    return {
-        currentPage: data.pageIndex,
-        style: {pointerEvents: "none"}
-    }
-}
