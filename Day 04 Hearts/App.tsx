@@ -16,6 +16,8 @@ const springOptions = {
     friction: 14
 }
 
+let animating = false
+
 function getRandomInt(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
@@ -44,13 +46,18 @@ function goRight(i, interval) {
     animate.easeInOut(data.heartRotation[i], secondRotation, {duration: 1})
 }
 
-function animateHearts() {
+function initiateHearts () {
     let hearts = document.querySelectorAll(".heart")
 
     hearts.forEach((heart, i)=>{
-        // Initiate values
         initHeart(i)
+    })
+}
 
+function animateHearts () {
+    let hearts = document.querySelectorAll(".heart")
+
+    hearts.forEach((heart, i)=>{
         // Start at slightly different times
         setTimeout(() => {
             // Animate heart
@@ -84,27 +91,48 @@ function animateHearts() {
                     goRight(i, 1)
                 }, 2000)
             }
-        }, 400*(i+2))
+        }, 400*(i))
     })
+
+    setTimeout(()=>{animating = false}, 5000)
 }
 
 export const heartButton: Override = () => { 
     return {
         scale: data.heartButtonScale,
+
+        onTapStart() {
+            if (!animating) {
+                animate.spring(data.heartButtonScale, 1.2, springOptions)
+                initiateHearts()
+            } else {
+                return
+            }
+        },
         
-        onTap() {
-            // Button push animation
-            animate.spring(data.heartButtonScale, 1.2, springOptions)
-            setTimeout(()=>{
+        onTapEnd() {
+            if (!animating) {
+                animating = true
                 animate.spring(data.heartButtonScale, 1, springOptions)
-            }, 100)
-            
-            animateHearts()
+                animateHearts()
+            } else {
+                return
+            }
         }
     }
 }
 
 export const heartOne: Override = () => {
+    return {
+        bottom: data.heartBottom[0],
+        opacity: data.heartOpacity[0],
+        scale: data.heartScale[0],
+        rotation: data.heartRotation[0],
+        left: data.heartLeft[0]
+    }
+}
+
+export const heartTwo: Override = () => {
     return {
         bottom: data.heartBottom[1],
         opacity: data.heartOpacity[1],
@@ -114,7 +142,7 @@ export const heartOne: Override = () => {
     }
 }
 
-export const heartTwo: Override = () => {
+export const heartThree: Override = () => {
     return {
         bottom: data.heartBottom[2],
         opacity: data.heartOpacity[2],
@@ -124,7 +152,7 @@ export const heartTwo: Override = () => {
     }
 }
 
-export const heartThree: Override = () => {
+export const heartFour: Override = () => {
     return {
         bottom: data.heartBottom[3],
         opacity: data.heartOpacity[3],
@@ -134,22 +162,12 @@ export const heartThree: Override = () => {
     }
 }
 
-export const heartFour: Override = () => {
+export const heartFive: Override = () => {
     return {
         bottom: data.heartBottom[4],
         opacity: data.heartOpacity[4],
         scale: data.heartScale[4],
         rotation: data.heartRotation[4],
         left: data.heartLeft[4]
-    }
-}
-
-export const heartFive: Override = () => {
-    return {
-        bottom: data.heartBottom[5],
-        opacity: data.heartOpacity[5],
-        scale: data.heartScale[5],
-        rotation: data.heartRotation[5],
-        left: data.heartLeft[5]
     }
 }
