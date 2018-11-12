@@ -36,7 +36,7 @@ Learn how the project is put together by connecting the components and overrides
 #### Viewing code files
 1. Download the project.
 2. Open the `.framerx `file.
-3. Open the project folder with `Shift + Command + P`.
+3. Open the project folder with `Option + Command + P`.
 4. Open the `code` folder to view the `.tsx` files that I have created.
 
 
