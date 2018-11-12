@@ -1,0 +1,32 @@
+.background {
+    position: fixed;
+    height: 1012px;
+    width: 575px;
+    top: -100px;
+    left: -100px;
+    background: rgba(0,0,0,0.9);
+    overflow: hidden;
+    filter: blur(10px) contrast(50);
+}
+
+.main-button {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    bottom: 160px;
+    right: 130px;
+    border-radius: 50%;
+    background: #0053FF;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sub-button {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    bottom: 160px;
+    right: 130px;
+    border-radius: 50%;
+    background: #0053FF;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
