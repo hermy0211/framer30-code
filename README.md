@@ -16,6 +16,8 @@ Not all of the functionality was built on code alone. Please refer to the instru
 
 If you have any questions, feel free to contact me at hermy0211@naver.com.
 
+All of my work is free to use, as long as it is not used for commercial purposes.
+
 
 ## Download
 
