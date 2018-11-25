@@ -46,7 +46,6 @@ Learn how the project is put together by connecting the components and overrides
 
 #### Known Issues
 Below is a list of known issues that I will tend to in the future.
-- Project 02 : Full dragging functionality has not been built in yet.
 - Project 05 : The perspective and rotate3d are updated asynchronously sometimes.
 - Project 07 : Color change animation is glitchy.
 - Project 10 : Only works for the topmost element.
