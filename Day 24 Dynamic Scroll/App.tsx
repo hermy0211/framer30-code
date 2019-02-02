@@ -16,6 +16,18 @@ const data = Data({
     followTop: 328
 })
 
+function gradualChange (yScroll, scrollLength, endYPoint, startYPoint) {
+    return Math.abs(yScroll) / scrollLength * (endYPoint - startYPoint) + startYPoint
+}
+
+function fullChange (yScroll, scrollLength) {
+    return Math.abs(yScroll) / scrollLength
+}
+
+function fullChangeBackwards (yScroll, scrollLength) {
+    return 1 - Math.abs(yScroll) / scrollLength
+}
+
 export const Scroll: Override = () => {
     return {
         onMove(event) {
@@ -24,19 +36,19 @@ export const Scroll: Override = () => {
 
             // Update values based on scroll
             if (y < 0 && y >= -200) {
-                data.bgOpacity = Math.abs(y)/200
-                data.bgHeight = Math.abs(y)/200*(160-184)+184
-                data.gradationTop = Math.abs(y)/200*(160-184)+184
-                data.profileLength = Math.abs(y)/200*(84-128)+128
-                data.profileTop = Math.abs(y)/200*(56-110)+110
-                data.profileLeft = Math.abs(y)/200*(28-124)+124
-                data.nameTop = Math.abs(y)/200*(71-260)+260
-                data.nameLeft = Math.abs(y)/200*(131-101)+101
-                data.jobTop = Math.abs(y)/200*(102-289)+289
-                data.jobLeft = Math.abs(y)/200*(132-127)+127
-                data.coloredOpacity = 1-Math.abs(y)/200
-                data.followOpacity = 1-Math.abs(y)/50
-                data.followTop = Math.abs(y)/200*(150-328)+328
+                data.bgOpacity = fullChange(y, 200)
+                data.bgHeight = gradualChange(y, 200, 160, 184)
+                data.gradationTop = gradualChange(y, 200, 160, 184)
+                data.profileLength = gradualChange(y, 200, 84, 128)
+                data.profileTop = gradualChange(y, 200, 56, 110)
+                data.profileLeft = gradualChange(y, 200, 28, 124)
+                data.nameTop = gradualChange(y, 200, 71, 260)
+                data.nameLeft = gradualChange(y, 200, 131, 101)
+                data.jobTop = gradualChange(y, 200, 102, 289)
+                data.jobLeft = gradualChange(y, 200, 132, 127)
+                data.coloredOpacity = fullChangeBackwards(y, 200)
+                data.followOpacity = fullChangeBackwards(y, 50)
+                data.followTop = gradualChange(y, 200, 150, 328)
             } else if (y < -200) {
                 data.bgOpacity = 1
                 data.bgHeight = 160
