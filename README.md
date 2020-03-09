@@ -1,5 +1,13 @@
 # 30 Days of Framer X Code
 
+
+## IMPORTANT
+
+This project has been outdated and uses a very early version of the Framer API. If you are a Framer Web Beta user, I have recreated most of these files for the most recent version of Framer, which can be found in your dashboard in the `Examples` tab.
+
+If you do not have access to the Web Beta, you can download all of the example files in this [Dropbox Folder](bit.ly/34GseFx). Enjoy!
+
+
 ## Table of Contents
 
 * [Introduction](#introduction)
