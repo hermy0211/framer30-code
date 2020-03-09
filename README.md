@@ -1,7 +1,7 @@
 # 30 Days of Framer X Code
 
 
-## IMPORTANT
+## Important
 
 This project has been outdated and uses a very early version of the Framer API. If you are a Framer Web Beta user, I have recreated most of these files for the most recent version of Framer, which can be found in your dashboard in the `Examples` tab.
 
