@@ -22,7 +22,7 @@ This repository stores the code for all of my [30 Days of Framer X](https://herm
 
 Not all of the functionality was built on code alone. Please refer to the instructions below and my [Medium](https://medium.com/@annelee_22736) posts for a brief overview to see how the code and design fits in together.
 
-If you have any questions, feel free to contact me at hermy0211@naver.com.
+If you have any questions, feel free to contact me at annesohyunlee@gmail.com.
 
 All of my work is free to use, as long as it is not used for commercial purposes.
 
